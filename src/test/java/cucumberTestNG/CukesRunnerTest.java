@@ -16,6 +16,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(monochrome = true, features = "src/test/java/features", plugin = { "pretty",
@@ -24,13 +27,15 @@ public class CukesRunnerTest extends AbstractTestNGCucumberTests {
 
 	@BeforeClass
 	@Parameters({ "browserName" })
-	public void setUP(String browserName) {
+	public void setUP(String browserName) throws Exception {
 		switch (browserName) {
 		case "chrome":
-			ThreadlocalDriver.setTLDriver(Chrome());
+//			ThreadlocalDriver.setTLDriver(Chrome());
+			ThreadlocalDriver.setTLDriver(RemoteChrome());
 			break;
 		case "firefox":
-			ThreadlocalDriver.setTLDriver(Firefox());
+//			ThreadlocalDriver.setTLDriver(Firefox());
+			ThreadlocalDriver.setTLDriver(RemoteFirefox());
 			break;
 		}
 	}
@@ -52,6 +57,28 @@ public class CukesRunnerTest extends AbstractTestNGCucumberTests {
 		option.addArguments("--allow-running-insecure-content");
 
 		return new ChromeDriver(option);
+	}
+
+	private RemoteWebDriver RemoteChrome() throws Exception {
+		ChromeOptions option = new ChromeOptions();
+//		option.addArguments(browser_size());
+//		if (MODE.equals("headless")) {
+//			option.addArguments("--headless");
+//		}
+		option.addArguments("--disable-web-security");
+		option.addArguments("--allow-running-insecure-content");
+		return new RemoteWebDriver(new URL("http://localhost:30007/wd/hub"), option);
+	}
+
+	private RemoteWebDriver RemoteFirefox() throws Exception {
+		FirefoxOptions option = new FirefoxOptions();
+//		option.addArguments(browser_size());
+//		if (MODE.equals("headless")) {
+//			option.addArguments("--headless");
+//		}
+		option.addArguments("--disable-web-security");
+		option.addArguments("--allow-running-insecure-content");
+		return new RemoteWebDriver(new URL("http://localhost:30007/wd/hub"), option);
 	}
 
 	@AfterClass
