@@ -67,7 +67,7 @@ public class CukesRunnerTest extends AbstractTestNGCucumberTests {
 //		}
 		option.addArguments("--disable-web-security");
 		option.addArguments("--allow-running-insecure-content");
-		return new RemoteWebDriver(new URL("http://localhost:30007/wd/hub"), option);
+		return new RemoteWebDriver(new URL("http://192.168.1.26:30007/wd/hub"), option);
 	}
 
 	private RemoteWebDriver RemoteFirefox() throws Exception {
@@ -78,7 +78,7 @@ public class CukesRunnerTest extends AbstractTestNGCucumberTests {
 //		}
 		option.addArguments("--disable-web-security");
 		option.addArguments("--allow-running-insecure-content");
-		return new RemoteWebDriver(new URL("http://localhost:30007/wd/hub"), option);
+		return new RemoteWebDriver(new URL("http://192.168.1.26:30007/wd/hub"), option);
 	}
 
 	@AfterClass
