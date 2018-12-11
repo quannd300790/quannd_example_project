@@ -1,18 +1,10 @@
-node
-{   
-    def mvnHome
-    mvnHome = tool 'maven'
-    stage('Clean') {
-        sh 'sudo rm -rf *'
+pipeline {
+        agent any
+        stages {
+            stage('Test') {
+                steps {
+                    echo 'Hello World ...'
+                }
+            }
+        }
     }
-    stage('Checkout') {
-     
-       checkout scm
-
-       sh "echo pending e2e testing"
-     }
-   
-       
-}
-
-
