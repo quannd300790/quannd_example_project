@@ -4,7 +4,6 @@ pipeline {
             stage('Test') {
                 steps {
                     echo 'Hello World ...'
-		    cat file.txt
                 }
             }
         }
