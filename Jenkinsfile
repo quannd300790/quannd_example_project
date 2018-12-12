@@ -1,12 +1,1 @@
-node
-{	
-
-
-stage('Test') {
- echo ‘Hello WORLD’
-}
-}
-
-
-
-
+echo ‘Branch test-pr1’
