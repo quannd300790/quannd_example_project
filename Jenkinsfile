@@ -1,1 +1,1 @@
-echo ‘Hellotestpr1’
+sh ‘echo “Hello test-pr1”’
