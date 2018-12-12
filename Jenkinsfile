@@ -11,5 +11,4 @@ stage ('freestyle - Checkout') {
 stage('Test') {
 echo HelloWorld
 }
-
 }
