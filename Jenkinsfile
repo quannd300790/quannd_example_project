@@ -9,6 +9,6 @@ stage ('freestyle - Checkout') {
 	}
 
 stage('Test') {
-echo HelloWorld
+ echo 'Hello World'
 }
 }
