@@ -1,9 +1,7 @@
 node
 {	
-
-
 stage('Test') {
- echo 'Hello World'
+ echo 'Branch master'
 }
 }
 
