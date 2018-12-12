@@ -1,7 +1,7 @@
 node
 {	
 stage ('freestyle - Checkout') {
- 	 checkout([$class: 'GitSCM', branches: [[name: '${sha1}']],
+ 	 checkout([$class: 'GitSCM', branches: [[name: '**']],
 	   doGenerateSubmoduleConfigurations: false, extensions: [], 
 	   submoduleCfg: [], userRemoteConfigs: 
 	   [[credentialsId: 'ddbe810d-af3f-4b1b-a21d-6320184efab5', 
