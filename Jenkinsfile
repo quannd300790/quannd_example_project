@@ -1,6 +1,6 @@
 node
 {	
 stage('Test') {
- 	echo 'Branch master'
+ 	echo 'Branch master '
 }
 }
