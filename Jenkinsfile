@@ -4,6 +4,3 @@ stage('Test') {
  	echo 'Branch master'
 }
 }
-
-
-
