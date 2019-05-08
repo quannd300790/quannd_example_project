@@ -1,6 +1,6 @@
 node
 {	
 stage('Test') {
- 	echo 'Branch test-pr1 '
+ 	echo 'Branch test-pr1'
 }
 }
