@@ -1,6 +1,13 @@
-node
-{	
-stage('Test') {
- 	echo 'Branch test-pr1 '
-}
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Test') {
+            steps {
+                echo 'Branch test-pr1..'
+            }
+        }
+       
+    }
 }
