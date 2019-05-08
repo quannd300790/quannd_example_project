@@ -1,3 +1,6 @@
-echo 'Branch test-pr'
-
-
+node
+{	
+stage('Test') {
+ 	echo 'Branch test-pr '
+}
+}
