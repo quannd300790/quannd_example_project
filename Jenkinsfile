@@ -8,7 +8,7 @@ node {
      def mvnHome = tool 'Maven';
     withSonarQubeEnv('Sonar') {
      // sh "${scannerHome}/bin/sonar-scanner"
-      sh "${mvnHome}/bin/mvn clean test sonar:sonar"
+      sh "${mvnHome}/bin/mvn clean test sonar:sonar -Dsonar.login=b08f2fcd894eada200df38ff08d04c86e6a4cb3e"
     }
     
     jacoco sourcePattern: '**/src/test/java'
