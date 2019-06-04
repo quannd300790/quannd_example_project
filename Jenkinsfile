@@ -10,5 +10,7 @@ node {
      // sh "${scannerHome}/bin/sonar-scanner"
       sh "${mvnHome}/bin/mvn sonar:sonar"
     }
+    
+    jacoco sourcePattern: '**/src/test/java'
   }
 }
