@@ -14,7 +14,7 @@ node
      stage('Analys'){
         def scannerHome = tool 'Sonar';
         withSonarQubeEnv('Sonar') {
-          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=quannd -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=e006561baa25f3ac8568e3f69d8f1cbcd5499ff2 -Dsonar.exclusions=src/**"
+          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=quannd -Dsonar.sources=. -Dsonar.host.url=http://192.168.1.87:9000 -Dsonar.login=e006561baa25f3ac8568e3f69d8f1cbcd5499ff2 -Dsonar.exclusions=src/**"
          }
         }    
     stage("Build"){            
