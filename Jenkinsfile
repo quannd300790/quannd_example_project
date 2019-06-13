@@ -6,14 +6,19 @@ node {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'Sonar';
      def mvnHome = tool 'Maven';
-    withSonarQubeEnv('Sonar') {
-      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=quan:quanndexample"
-      //sh "${mvnHome}/bin/mvn clean test sonar:sonar -Dsonar.login=b08f2fcd894eada200df38ff08d04c86e6a4cb3e"
-      
-    }
-    
-    jacoco sourcePattern: '**/src/test/java'
-    
-    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'coverage', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+ 
   }
+  
+  
+  post {
+        always {
+            echo 'Hello!'
+          
+            emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+            
+        }
+    }
+  
 }
