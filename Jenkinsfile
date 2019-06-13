@@ -3,15 +3,19 @@ pipeline {
   stages {    
     
      stage('SCM') {
-    checkout scm
+       steps {
+          checkout scm
+       }
+   
   }
     
     stage('Test') {
-    // requires SonarQube Scanner 2.8+
-    //def scannerHome = tool 'Sonar';
-     def mvnHome = tool 'Maven'
+      steps{
+        def mvnHome = tool 'Maven'
     
      sh "${mvnHome}/bin/mvn clean test"
+      }
+     
   }
     
   }
