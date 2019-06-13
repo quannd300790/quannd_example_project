@@ -5,8 +5,9 @@ node {
   stage('SonarQube analysis') {
     // requires SonarQube Scanner 2.8+
     //def scannerHome = tool 'Sonar';
-     def mvn = tool 'Maven';
-     sh 'mvn clean test'
+     def mvnHome = tool 'Maven'
+    
+     sh "${mvnHome}/bin/mvn clean test"
   }
   
   
